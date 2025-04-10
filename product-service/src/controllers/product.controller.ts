@@ -42,6 +42,7 @@ export const getAllProducts = async (
   res: Response,
   next: NextFunction,
 ): Promise<void> => {
+  console.log(req);
   try {
     const products = await Product.find();
 

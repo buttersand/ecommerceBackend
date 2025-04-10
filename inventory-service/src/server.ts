@@ -3,9 +3,8 @@ import 'tsconfig-paths/register';
 import app from '@/app';
 import { connectDB } from '@yashsingh2903/ecommerce-common';
 import '@config/env';
-import { envConfig } from '@config/env';
+import { MONGO_URI , PORT} from '@config/env';
 
-const { PORT, MONGO_URI } = envConfig;
 
 if (!MONGO_URI) throw new Error('Mongo URI not defined in .env');
 

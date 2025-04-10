@@ -5,7 +5,7 @@
       "@app": ["app"],
       "@config/*": ["config/*"],
       "@routes/*": ["routes/*"],
-      "@proxy/*": ["proxy/*"],
+      "@proxy/*": ["proxy/*"]
     },
     "outDir": "./dist",
     "moduleResolution": "node",

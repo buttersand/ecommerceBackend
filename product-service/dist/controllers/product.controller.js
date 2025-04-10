@@ -22,6 +22,7 @@ const createProduct = async (req, res, next) => {
 };
 exports.createProduct = createProduct;
 const getAllProducts = async (req, res, next) => {
+    console.log(req);
     try {
         const products = await product_model_1.Product.find();
         const { statusCode, body } = (0, ecommerce_common_1.successResponse)("Products fetched successfully", products, ecommerce_common_1.StatusCodes.OK);

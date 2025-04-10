@@ -8,15 +8,14 @@ require("./config/env");
 const app_1 = __importDefault(require("./app"));
 const ecommerce_common_1 = require("@yashsingh2903/ecommerce-common");
 const env_1 = require("./config/env");
-const { MONGO_URI, PORT } = env_1.envConfig;
-if (!MONGO_URI) {
+if (!env_1.MONGO_URI) {
     throw new Error("Mongo URI not defined in .env");
 }
 const start = async () => {
     try {
-        await (0, ecommerce_common_1.connectDB)(MONGO_URI);
-        app_1.default.listen(PORT, () => {
-            console.log(`Product Service running on port ${PORT}`);
+        await (0, ecommerce_common_1.connectDB)(env_1.MONGO_URI);
+        app_1.default.listen(env_1.PORT, () => {
+            console.log(`Product Service running on port ${env_1.PORT}`);
         });
     }
     catch (err) {

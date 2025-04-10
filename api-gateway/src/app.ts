@@ -1,15 +1,10 @@
 import express from "express";
-import routes from "@routes/index";
-import serviceProxies from "@proxy/index";
+import cors from "cors";
+import serviceProxies, { proxyRequestTransfer } from "@proxy/index";
 
 const app = express();
-
+app.use(cors());
 app.use(express.json());
-
-Object.entries(serviceProxies).forEach(([route, proxy]) => {
-  app.use(`/api/${route}`, proxy);
-});
-
-app.use("/", routes);
+app.use(proxyRequestTransfer);
 
 export default app;

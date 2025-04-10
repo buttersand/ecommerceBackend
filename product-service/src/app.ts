@@ -5,7 +5,7 @@ import productRouter from "@/routes/product.routes";
 const app = express();
 
 app.use(express.json());
-app.use("/api", productRouter);
+app.use("/product", productRouter);
 app.use(errorHandler);
 
 export default app;

@@ -1,10 +1,10 @@
-import { Request, Response, NextFunction } from "express";
-import Order from "@models/order.model";
+import { Request, Response, NextFunction } from 'express';
+import Order from '@models/order.model';
 import {
   StatusCodes,
   errorResponse,
   successResponse,
-} from "@yashsingh2903/ecommerce-common";
+} from '@yashsingh2903/ecommerce-common';
 
 export const createOrder = async (
   req: Request,
@@ -14,9 +14,9 @@ export const createOrder = async (
   try {
     const { customerId, productId, quantity, status } = req.body;
 
-    if (!customerId || !productId || !quantity) {
+    if (!customerId || !productId || quantity === undefined) {
       const { statusCode, body } = errorResponse(
-        "customerId, productId and quantity are required",
+        'customerId, productId and quantity are required',
         StatusCodes.BAD_REQUEST
       );
       res.status(statusCode).json(body);
@@ -27,7 +27,7 @@ export const createOrder = async (
     await order.save();
 
     const { statusCode, body } = successResponse(
-      "Order created successfully",
+      'Order created successfully',
       order,
       StatusCodes.CREATED
     );
@@ -38,7 +38,7 @@ export const createOrder = async (
 };
 
 export const getAllOrders = async (
-  req: Request,
+  _req: Request,
   res: Response,
   next: NextFunction
 ): Promise<void> => {
@@ -46,7 +46,7 @@ export const getAllOrders = async (
     const orders = await Order.find();
 
     const { statusCode, body } = successResponse(
-      "Fetched all orders",
+      'Fetched all orders',
       orders,
       StatusCodes.OK
     );

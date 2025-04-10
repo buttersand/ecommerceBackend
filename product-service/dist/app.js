@@ -4,12 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const dotenv_1 = __importDefault(require("dotenv"));
-const ecommerce_common_1 = require("@yashsingh2903/ecommerce-common"); // from your common package
+const ecommerce_common_1 = require("@yashsingh2903/ecommerce-common");
 const product_routes_1 = __importDefault(require("./routes/product.routes"));
-dotenv_1.default.config();
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
-app.use("/api/products", product_routes_1.default);
+app.use("/api", product_routes_1.default);
 app.use(ecommerce_common_1.errorHandler);
 exports.default = app;

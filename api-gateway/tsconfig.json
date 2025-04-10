@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@app": ["app"],
+      "@config/*": ["config/*"],
+      "@routes/*": ["routes/*"],
+      "@proxy/*": ["proxy/*"],
+    },
+    "outDir": "./dist",
+    "moduleResolution": "node",
+    "target": "ES6",
+    "module": "commonjs",
+    "esModuleInterop": true
+  }
+}
